@@ -1,0 +1,379 @@
+{
+    "name": "chat",
+    "context": {
+        "trace_id": "0x5a7b35d37a2a51ab54fe75cefda833cf",
+        "span_id": "0x9f16bc92dc25279d",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "0x2a8026172d28a1e2",
+    "start_time": "2026-07-29T05:20:57.753026Z",
+    "end_time": "2026-07-29T05:21:00.175855Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "gen_ai.event.start_time": "2026-07-29T05:20:57.753027+00:00",
+        "gen_ai.operation.name": "chat",
+        "gen_ai.system": "strands-agents",
+        "gen_ai.request.model": "global.anthropic.claude-sonnet-4-6",
+        "gen_ai.event.end_time": "2026-07-29T05:21:00.175716+00:00",
+        "gen_ai.usage.prompt_tokens": 763,
+        "gen_ai.usage.input_tokens": 763,
+        "gen_ai.usage.completion_tokens": 104,
+        "gen_ai.usage.output_tokens": 104,
+        "gen_ai.usage.total_tokens": 867,
+        "gen_ai.server.time_to_first_token": 1735,
+        "gen_ai.server.request.duration": 1775
+    },
+    "events": [
+        {
+            "name": "gen_ai.system.message",
+            "timestamp": "2026-07-29T05:20:57.753040Z",
+            "attributes": {
+                "content": "[{\"text\": \"あなたは簡潔で親切な日本語アシスタントです。面積の計算では、必ずcalculate_rectangle_areaツールを使用してください。\"}]"
+            }
+        },
+        {
+            "name": "gen_ai.user.message",
+            "timestamp": "2026-07-29T05:20:57.753046Z",
+            "attributes": {
+                "content": "[{\"text\": \"幅12.5メートル、高さ8メートルの長方形の面積を計算してください。\"}]"
+            }
+        },
+        {
+            "name": "gen_ai.choice",
+            "timestamp": "2026-07-29T05:21:00.175670Z",
+            "attributes": {
+                "finish_reason": "tool_use",
+                "message": "[{\"text\": \"幅12.5メートル、高さ8メートルの長方形の面積を計算します！\"}, {\"toolUse\": {\"toolUseId\": \"tooluse_BqqnHmM8LwlaVxJUlT4g24\", \"name\": \"calculate_rectangle_area\", \"input\": {\"width\": 12.5, \"height\": 8}}}]"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.44.0",
+            "service.instance.id": "fb4e036c-f759-42d6-b04f-7ca6ba5b4982",
+            "service.name": "strands-agents",
+            "service.version": "1.50.2"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "execute_tool calculate_rectangle_area",
+    "context": {
+        "trace_id": "0x5a7b35d37a2a51ab54fe75cefda833cf",
+        "span_id": "0xe461c5e2b04bbd55",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "0x2a8026172d28a1e2",
+    "start_time": "2026-07-29T05:21:00.178166Z",
+    "end_time": "2026-07-29T05:21:00.179398Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "gen_ai.event.start_time": "2026-07-29T05:21:00.178171+00:00",
+        "gen_ai.operation.name": "execute_tool",
+        "gen_ai.system": "strands-agents",
+        "gen_ai.tool.name": "calculate_rectangle_area",
+        "gen_ai.tool.call.id": "tooluse_BqqnHmM8LwlaVxJUlT4g24",
+        "gen_ai.tool.description": "長方形の面積を計算する。\n\nReturns:\n    幅と高さを掛けて求めた長方形の面積。\n\nRaises:\n    ValueError: 幅または高さに負の値が指定された場合。",
+        "gen_ai.tool.json_schema": "{\"properties\": {\"width\": {\"description\": \"長方形の幅。0以上の数値を指定する。\", \"type\": \"number\"}, \"height\": {\"description\": \"長方形の高さ。0以上の数値を指定する。\", \"type\": \"number\"}}, \"required\": [\"width\", \"height\"], \"type\": \"object\"}",
+        "gen_ai.event.end_time": "2026-07-29T05:21:00.179365+00:00",
+        "gen_ai.tool.status": "success"
+    },
+    "events": [
+        {
+            "name": "gen_ai.tool.message",
+            "timestamp": "2026-07-29T05:21:00.178226Z",
+            "attributes": {
+                "role": "tool",
+                "content": "{\"width\": 12.5, \"height\": 8}",
+                "id": "tooluse_BqqnHmM8LwlaVxJUlT4g24"
+            }
+        },
+        {
+            "name": "gen_ai.choice",
+            "timestamp": "2026-07-29T05:21:00.179354Z",
+            "attributes": {
+                "message": "[{\"text\": \"100.0\"}]",
+                "id": "tooluse_BqqnHmM8LwlaVxJUlT4g24"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.44.0",
+            "service.instance.id": "fb4e036c-f759-42d6-b04f-7ca6ba5b4982",
+            "service.name": "strands-agents",
+            "service.version": "1.50.2"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "execute_event_loop_cycle",
+    "context": {
+        "trace_id": "0x5a7b35d37a2a51ab54fe75cefda833cf",
+        "span_id": "0x2a8026172d28a1e2",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "0x10af463d0776d0dd",
+    "start_time": "2026-07-29T05:20:57.752899Z",
+    "end_time": "2026-07-29T05:21:00.180363Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "gen_ai.event.start_time": "2026-07-29T05:20:57.752901+00:00",
+        "gen_ai.operation.name": "execute_event_loop_cycle",
+        "gen_ai.system": "strands-agents",
+        "event_loop.cycle_id": "8e6925f4-5c2f-4efb-a819-c6951b58d9fa",
+        "gen_ai.event.end_time": "2026-07-29T05:21:00.180343+00:00"
+    },
+    "events": [
+        {
+            "name": "gen_ai.user.message",
+            "timestamp": "2026-07-29T05:20:57.752918Z",
+            "attributes": {
+                "content": "[{\"text\": \"幅12.5メートル、高さ8メートルの長方形の面積を計算してください。\"}]"
+            }
+        },
+        {
+            "name": "gen_ai.choice",
+            "timestamp": "2026-07-29T05:21:00.180335Z",
+            "attributes": {
+                "message": "[{\"text\": \"幅12.5メートル、高さ8メートルの長方形の面積を計算します！\"}, {\"toolUse\": {\"toolUseId\": \"tooluse_BqqnHmM8LwlaVxJUlT4g24\", \"name\": \"calculate_rectangle_area\", \"input\": {\"width\": 12.5, \"height\": 8}}}]",
+                "tool.result": "[{\"toolResult\": {\"toolUseId\": \"tooluse_BqqnHmM8LwlaVxJUlT4g24\", \"status\": \"success\", \"content\": [{\"text\": \"100.0\"}]}}]"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.44.0",
+            "service.instance.id": "fb4e036c-f759-42d6-b04f-7ca6ba5b4982",
+            "service.name": "strands-agents",
+            "service.version": "1.50.2"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "chat",
+    "context": {
+        "trace_id": "0x5a7b35d37a2a51ab54fe75cefda833cf",
+        "span_id": "0x9b8508553dea2fb0",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "0xd594a5600c9df804",
+    "start_time": "2026-07-29T05:21:00.181545Z",
+    "end_time": "2026-07-29T05:21:02.530867Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "gen_ai.event.start_time": "2026-07-29T05:21:00.181548+00:00",
+        "gen_ai.operation.name": "chat",
+        "gen_ai.system": "strands-agents",
+        "gen_ai.request.model": "global.anthropic.claude-sonnet-4-6",
+        "gen_ai.event.end_time": "2026-07-29T05:21:02.530797+00:00",
+        "gen_ai.usage.prompt_tokens": 882,
+        "gen_ai.usage.input_tokens": 882,
+        "gen_ai.usage.completion_tokens": 92,
+        "gen_ai.usage.output_tokens": 92,
+        "gen_ai.usage.total_tokens": 974,
+        "gen_ai.server.time_to_first_token": 865,
+        "gen_ai.server.request.duration": 2333
+    },
+    "events": [
+        {
+            "name": "gen_ai.system.message",
+            "timestamp": "2026-07-29T05:21:00.181601Z",
+            "attributes": {
+                "content": "[{\"text\": \"あなたは簡潔で親切な日本語アシスタントです。面積の計算では、必ずcalculate_rectangle_areaツールを使用してください。\"}]"
+            }
+        },
+        {
+            "name": "gen_ai.user.message",
+            "timestamp": "2026-07-29T05:21:00.181626Z",
+            "attributes": {
+                "content": "[{\"text\": \"幅12.5メートル、高さ8メートルの長方形の面積を計算してください。\"}]"
+            }
+        },
+        {
+            "name": "gen_ai.assistant.message",
+            "timestamp": "2026-07-29T05:21:00.181691Z",
+            "attributes": {
+                "content": "[{\"text\": \"幅12.5メートル、高さ8メートルの長方形の面積を計算します！\"}, {\"toolUse\": {\"toolUseId\": \"tooluse_BqqnHmM8LwlaVxJUlT4g24\", \"name\": \"calculate_rectangle_area\", \"input\": {\"width\": 12.5, \"height\": 8}}}]"
+            }
+        },
+        {
+            "name": "gen_ai.tool.message",
+            "timestamp": "2026-07-29T05:21:00.181722Z",
+            "attributes": {
+                "content": "[{\"toolResult\": {\"toolUseId\": \"tooluse_BqqnHmM8LwlaVxJUlT4g24\", \"status\": \"success\", \"content\": [{\"text\": \"100.0\"}]}}]"
+            }
+        },
+        {
+            "name": "gen_ai.choice",
+            "timestamp": "2026-07-29T05:21:02.530777Z",
+            "attributes": {
+                "finish_reason": "end_turn",
+                "message": "[{\"text\": \"計算結果が出ました！🎉\\n\\n**幅 12.5メートル × 高さ 8メートル = 100.0 平方メートル**\\n\\nちょうど **100㎡** というキリの良い面積になりました！何かご不明な点があればお気軽にどうぞ。\"}]"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.44.0",
+            "service.instance.id": "fb4e036c-f759-42d6-b04f-7ca6ba5b4982",
+            "service.name": "strands-agents",
+            "service.version": "1.50.2"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "execute_event_loop_cycle",
+    "context": {
+        "trace_id": "0x5a7b35d37a2a51ab54fe75cefda833cf",
+        "span_id": "0xd594a5600c9df804",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "0x10af463d0776d0dd",
+    "start_time": "2026-07-29T05:21:00.180956Z",
+    "end_time": "2026-07-29T05:21:02.532396Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "gen_ai.event.start_time": "2026-07-29T05:21:00.180960+00:00",
+        "gen_ai.operation.name": "execute_event_loop_cycle",
+        "gen_ai.system": "strands-agents",
+        "event_loop.cycle_id": "57dd1c7d-a348-4bae-a2ab-6eea0d23adc1",
+        "event_loop.parent_cycle_id": "8e6925f4-5c2f-4efb-a819-c6951b58d9fa",
+        "gen_ai.event.end_time": "2026-07-29T05:21:02.532363+00:00"
+    },
+    "events": [
+        {
+            "name": "gen_ai.user.message",
+            "timestamp": "2026-07-29T05:21:00.181024Z",
+            "attributes": {
+                "content": "[{\"text\": \"幅12.5メートル、高さ8メートルの長方形の面積を計算してください。\"}]"
+            }
+        },
+        {
+            "name": "gen_ai.assistant.message",
+            "timestamp": "2026-07-29T05:21:00.181080Z",
+            "attributes": {
+                "content": "[{\"text\": \"幅12.5メートル、高さ8メートルの長方形の面積を計算します！\"}, {\"toolUse\": {\"toolUseId\": \"tooluse_BqqnHmM8LwlaVxJUlT4g24\", \"name\": \"calculate_rectangle_area\", \"input\": {\"width\": 12.5, \"height\": 8}}}]"
+            }
+        },
+        {
+            "name": "gen_ai.tool.message",
+            "timestamp": "2026-07-29T05:21:00.181114Z",
+            "attributes": {
+                "content": "[{\"toolResult\": {\"toolUseId\": \"tooluse_BqqnHmM8LwlaVxJUlT4g24\", \"status\": \"success\", \"content\": [{\"text\": \"100.0\"}]}}]"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.44.0",
+            "service.instance.id": "fb4e036c-f759-42d6-b04f-7ca6ba5b4982",
+            "service.name": "strands-agents",
+            "service.version": "1.50.2"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "invoke_agent Strands Agents",
+    "context": {
+        "trace_id": "0x5a7b35d37a2a51ab54fe75cefda833cf",
+        "span_id": "0x10af463d0776d0dd",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-07-29T05:20:57.752473Z",
+    "end_time": "2026-07-29T05:21:02.533388Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "gen_ai.event.start_time": "2026-07-29T05:20:57.752476+00:00",
+        "gen_ai.operation.name": "invoke_agent",
+        "gen_ai.system": "strands-agents",
+        "gen_ai.agent.name": "Strands Agents",
+        "gen_ai.request.model": "global.anthropic.claude-sonnet-4-6",
+        "gen_ai.agent.tools": "[\"calculate_rectangle_area\"]",
+        "system_prompt": "あなたは簡潔で親切な日本語アシスタントです。面積の計算では、必ずcalculate_rectangle_areaツールを使用してください。",
+        "gen_ai.event.end_time": "2026-07-29T05:21:02.533341+00:00",
+        "gen_ai.usage.prompt_tokens": 1645,
+        "gen_ai.usage.completion_tokens": 196,
+        "gen_ai.usage.input_tokens": 1645,
+        "gen_ai.usage.output_tokens": 196,
+        "gen_ai.usage.total_tokens": 1841,
+        "gen_ai.usage.cache_read_input_tokens": 0,
+        "gen_ai.usage.cache_write_input_tokens": 0
+    },
+    "events": [
+        {
+            "name": "gen_ai.user.message",
+            "timestamp": "2026-07-29T05:20:57.752748Z",
+            "attributes": {
+                "content": "[{\"text\": \"幅12.5メートル、高さ8メートルの長方形の面積を計算してください。\"}]"
+            }
+        },
+        {
+            "name": "gen_ai.choice",
+            "timestamp": "2026-07-29T05:21:02.533283Z",
+            "attributes": {
+                "message": "計算結果が出ました！🎉\n\n**幅 12.5メートル × 高さ 8メートル = 100.0 平方メートル**\n\nちょうど **100㎡** というキリの良い面積になりました！何かご不明な点があればお気軽にどうぞ。\n",
+                "finish_reason": "end_turn"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.44.0",
+            "service.instance.id": "fb4e036c-f759-42d6-b04f-7ca6ba5b4982",
+            "service.name": "strands-agents",
+            "service.version": "1.50.2"
+        },
+        "schema_url": ""
+    }
+}
+
+エージェントの最終応答:
+計算結果が出ました！🎉
+
+**幅 12.5メートル × 高さ 8メートル = 100.0 平方メートル**
+
+ちょうど **100㎡** というキリの良い面積になりました！何かご不明な点があればお気軽にどうぞ。
+

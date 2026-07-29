@@ -26,8 +26,9 @@ htmlcov/
 !.env.example
 
 # Generated telemetry logs (may contain prompts or sensitive data)
-/logs/
 *.log
+/logs/*
+!/logs/20260729142057.log
 
 # IDE and editor files
 .idea/
