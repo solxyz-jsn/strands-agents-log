@@ -1,0 +1,40 @@
+# Python bytecode and tool caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.pyright/
+.ruff_cache/
+
+# Virtual environments and uv cache
+.venv/
+venv/
+.uv-cache/
+
+# Build and coverage artifacts
+build/
+dist/
+*.egg-info/
+.coverage
+.coverage.*
+htmlcov/
+
+# Local environment files and secrets
+.env
+.env.*
+!.env.example
+
+# Generated telemetry logs (may contain prompts or sensitive data)
+/logs/
+*.log
+
+# IDE and editor files
+.idea/
+.vscode/
+*.swp
+*~
+
+# Operating system files
+.DS_Store
+Thumbs.db
